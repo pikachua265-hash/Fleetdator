@@ -1,0 +1,22 @@
+﻿{
+  "schemaVersion": 1,
+  "id": "antigravity_ruby",
+  "version": "1.0.0",
+  "name": "Antigravity Ruby Mod",
+  "description": "A real Fabric mod for testing automated migration",
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "com.antigravity.ruby.AntigravityRubyMod"
+    ]
+  },
+  "mixins": [
+    "antigravity_ruby.mixins.json"
+  ],
+  "depends": {
+    "fabricloader": ">=0.14.21",
+    "minecraft": "1.20.1",
+    "java": ">=17",
+    "fabric-api": "*"
+  }
+}

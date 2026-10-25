@@ -1,0 +1,18 @@
+{
+  "name": "minecraft-mod-updater-ai",
+  "version": "1.0.0",
+  "description": "Production Minecraft Mod Updater AI Platform with Real Toolchain Migration",
+  "scripts": {
+    "dev:backend": "cd backend && npm run dev",
+    "dev:frontend": "cd frontend && npm run dev",
+    "build:backend": "cd backend && npm run build",
+    "build:frontend": "cd frontend && npm run build",
+    "build": "npm run build:backend && npm run build:frontend",
+    "start:backend": "cd backend && npm start",
+    "start:frontend": "cd frontend && npm start",
+    "test:all": "cd backend && npm test && npm run test:e2e && npm run test:ai"
+  },
+  "keywords": ["minecraft", "mod-updater", "fabric", "forge", "neoforge", "ai-repair"],
+  "author": "Antigravity Senior Engineer",
+  "license": "MIT"
+}

@@ -139,21 +139,14 @@ export class JobManager extends EventEmitter {
         `Detected loader: ${inspection.loader.toUpperCase()} | Minecraft: ${inspection.currentMinecraft} | Mod: ${inspection.modName} (${inspection.modId})`
       );
 
-      // Binary-only validation check (Section 2 & 26)
-      if (inspection.isBinaryOnly && !inspection.canMigrateFromBinary) {
+      // Binary-only handling (Level 0 deterministic metadata & pack format migration)
+      if (inspection.isBinaryOnly) {
         this.log(
           job,
           'INSPECT',
-          'WARN',
-          'Source project required for reliable migration. Arbitrary binary JAR migration cannot guarantee stable bytecode remapping.'
+          'INFO',
+          `Binary JAR detected (${inspection.modId}). Applying Level 0 deterministic metadata, resource, and compatibility migration for ${job.targetMinecraft}.`
         );
-        this.finishJob(
-          job,
-          'MANUAL_REVIEW',
-          'NEEDS_MANUAL_REVIEW',
-          'Source project required for reliable migration. This uploaded file is a precompiled binary JAR containing compiled bytecode (.class files) without Java source code.'
-        );
-        return;
       }
 
       // 2. PREPARING WORKSPACE
